@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 用户Controller
@@ -53,9 +55,8 @@ public class UserController  {
             userService.update(user);
         }else{
             //新增用户
-            if("".equalsIgnoreCase((user.getId()))){
-                user.setId(null);
-            }
+            String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+            user.setId(uuid);
             userService.save(user);
 
         }
@@ -72,12 +73,14 @@ public class UserController  {
      * @return
      */
     @RequestMapping(value = {"list", ""})
-    public String list( HttpServletRequest request, HttpServletResponse response, Model model,User user) {
-
+    public ModelAndView list( HttpServletRequest request, HttpServletResponse response, Model model,User user) {
+        ModelAndView mav=new ModelAndView();
+        mav.setViewName("user/list");
         List<User> userList =  userService.findList(user);
         model.addAttribute("userList", userList);
         model.addAttribute("hello", "tfy");
-        return "user/list";
+        mav.addObject(model);
+        return mav;
     }
     /**
      * 根据ID删除用户 by tanfy 2017-07-11

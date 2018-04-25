@@ -141,9 +141,9 @@
                 <dubbo.protocol.name>dubbo</dubbo.protocol.name>
                 <dubbo.protocol.port>${dubbo.protocol.user.port}</dubbo.protocol.port>
                 <!--redis 测试服务器 -->
-                <redis.host>192.168.1.100</redis.host>
+                <!--<redis.host>192.168.1.100</redis.host>-->
                 <!--redis 正式环境服务器 -->
-                <!--<redis.host>127.0.0.1</redis.host>-->
+                <redis.host>127.0.0.1</redis.host>
                 <!-- <redis.host>101.201.213.176</redis.host>-->
                 <redis.port>6379</redis.port>
                 <redis.pass></redis.pass>

@@ -102,12 +102,12 @@
             <artifactId>sitemesh</artifactId>
             <version>${sitemesh.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
